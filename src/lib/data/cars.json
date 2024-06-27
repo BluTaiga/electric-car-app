@@ -1,0 +1,17 @@
+[{
+    "id": 1,
+    "name": "Rivian R1T 2024",
+    "price": "75000",
+    "batterySize": 135,
+    "chargingSpeed": 220,
+    "imageName": "Rivian-R1T.jpg"
+},
+{
+    "id": 2,
+    "name": "Tesla Model 3",
+    "price": 39990,
+    "batterySize": 82,
+    "chargingSpeed": 250,
+    "imageName": "Tesla-M3.jpg"
+  }
+]
