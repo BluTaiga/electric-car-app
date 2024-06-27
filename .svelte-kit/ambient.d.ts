@@ -34,11 +34,14 @@ declare module '$env/static/private' {
 	export const npm_config_noproxy: string;
 	export const HOME: string;
 	export const OLDPWD: string;
+	export const LESS: string;
 	export const npm_package_json: string;
+	export const ZSH: string;
+	export const LSCOLORS: string;
+	export const PAGER: string;
 	export const npm_config_userconfig: string;
 	export const npm_config_local_prefix: string;
 	export const DBUS_SESSION_BUS_ADDRESS: string;
-	export const npm_config_engine_strict: string;
 	export const WSL_DISTRO_NAME: string;
 	export const COLOR: string;
 	export const WAYLAND_DISPLAY: string;
@@ -59,6 +62,7 @@ declare module '$env/static/private' {
 	export const WT_SESSION: string;
 	export const DISPLAY: string;
 	export const LANG: string;
+	export const LS_COLORS: string;
 	export const npm_lifecycle_script: string;
 	export const SHELL: string;
 	export const npm_package_version: string;
@@ -114,11 +118,14 @@ declare module '$env/dynamic/private' {
 		npm_config_noproxy: string;
 		HOME: string;
 		OLDPWD: string;
+		LESS: string;
 		npm_package_json: string;
+		ZSH: string;
+		LSCOLORS: string;
+		PAGER: string;
 		npm_config_userconfig: string;
 		npm_config_local_prefix: string;
 		DBUS_SESSION_BUS_ADDRESS: string;
-		npm_config_engine_strict: string;
 		WSL_DISTRO_NAME: string;
 		COLOR: string;
 		WAYLAND_DISPLAY: string;
@@ -139,6 +146,7 @@ declare module '$env/dynamic/private' {
 		WT_SESSION: string;
 		DISPLAY: string;
 		LANG: string;
+		LS_COLORS: string;
 		npm_lifecycle_script: string;
 		SHELL: string;
 		npm_package_version: string;

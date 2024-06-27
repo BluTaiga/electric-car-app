@@ -13,5 +13,13 @@
     "batterySize": 82,
     "chargingSpeed": 250,
     "imageName": "Tesla-M3.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Polestar 2",
+    "price": 51300,
+    "batterySize": 82,
+    "chargingSpeed": 205,
+    "imageName": "Polestar-2.jpg"
   }
 ]
