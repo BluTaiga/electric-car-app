@@ -9,7 +9,9 @@
 </script>
 
 <div class="bg-white shadow-md rounded-lg overflow-hidden">
-  <img src="/images/{car.imageName}" alt={car.name} class="w-full h-48 object-cover" loading="lazy" />
+  <div class="relative w-full" style="padding-top: 56.25%;"> <!-- Aspect ratio box (16:9) -->
+    <img src="/images/{car.imageName}" alt={car.name} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+  </div>
   <div class="p-4">
     <h2 class="text-xl font-bold mb-2">{car.name}</h2>
     <p class="mb-1">Price: ${car.price.toLocaleString()}</p>
