@@ -1,10 +1,11 @@
 [{
     "id": 1,
     "name": "Rivian R1T 2024",
-    "price": "75000",
+    "price": "70400",
     "batterySize": 135,
     "chargingSpeed": 220,
-    "imageName": "Rivian-R1T.jpg"
+    "imageName": "Rivian-R1T.jpg",
+    "summary": "The 2024 Rivian R1T is a groundbreaking all-electric pickup truck that combines luxury, performance, and off-road capability. Priced at $70,400, it offers exceptional value for its class. The R1T boasts a massive 135 kWh battery, providing an impressive range for long trips and outdoor adventures. With a rapid charging speed of 220 kW, you can quickly top up the battery during pit stops. This innovative truck doesn't just excel in specs; it offers unique features like a gear tunnel, flexible roof rack options, and advanced driver assistance systems, making it a versatile choice for both daily driving and outdoor enthusiasts."
 },
 {
     "id": 2,
@@ -12,7 +13,8 @@
     "price": 39990,
     "batterySize": 82,
     "chargingSpeed": 250,
-    "imageName": "Tesla-M3.jpg"
+    "imageName": "Tesla-M3.jpg",
+    "summary": "The Tesla Model 3 is a game-changing all-electric sedan that revolutionized the EV market with its blend of affordability, performance, and cutting-edge technology. Priced at $39,990, it offers exceptional value in the electric vehicle segment. The Model 3 features an efficient 82 kWh battery, providing an impressive range for daily commutes and longer trips. With a rapid charging speed of 250 kW via Tesla's extensive Supercharger network, you can quickly recharge during journeys. This innovative car doesn't just excel in specs; it offers advanced autopilot capabilities, over-the-air updates, and a minimalist interior with a large central touchscreen, making it a top choice for tech enthusiasts and eco-conscious drivers alike."
   },
   {
     "id": 3,
@@ -20,6 +22,7 @@
     "price": 51300,
     "batterySize": 82,
     "chargingSpeed": 205,
-    "imageName": "Polestar-2.jpg"
+    "imageName": "Polestar-2.jpg",
+    "summary": "The Polestar 2 is a sophisticated all-electric fastback that combines Scandinavian design with high-performance electric driving. Priced at $51,300, it offers a premium experience in the luxury EV segment. The Polestar 2 boasts a robust 82 kWh battery, delivering an impressive range for both urban commutes and longer journeys. With a quick charging speed of 205 kW, you can efficiently recharge during stops. This avant-garde vehicle doesn't just impress with its specs; it features a Google-powered infotainment system, vegan interior options, and advanced driver assistance features. The Polestar 2's dual-motor AWD system and performance tuning make it a thrilling drive, appealing to both luxury car enthusiasts and environmentally conscious consumers."
   }
 ]
