@@ -33,7 +33,7 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 3000
 
 # Command to run the application
 CMD ["node", "build/index.js"]

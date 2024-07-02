@@ -1,0 +1,25 @@
+# flyctl launch added from .gitignore
+# Node.js
+**/node_modules
+**/npm-debug.log
+**/yarn-error.log
+
+# SvelteKit
+**/.svelte-kit
+**/__sapper__
+
+# Logs
+**/logs
+**/*.log
+**/logs
+**/*.log.*
+
+# Environment variables
+**/.env
+**/.env.local
+**/.env.*.local
+
+# OS-specific files
+**/.DS_Store
+**/Thumbs.db
+fly.toml
