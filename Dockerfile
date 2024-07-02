@@ -36,4 +36,4 @@ COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 8080
 
 # Command to run the application
-CMD ["node", "build"]
+CMD ["node", "build/index.js"]
