@@ -12,7 +12,10 @@ export const typeDefs = gql`
     summary: String
   }
   type Query {
-    vehicles: [Vehicle]
+    getVehicles: [Vehicle]
+  }
+  type Query {
+    getVehicle(id: ID!): Vehicle
   }
   type Mutation {
     createVehicle(
@@ -26,10 +29,11 @@ export const typeDefs = gql`
   }
   type Mutation{
     updateVehicle(
-      name: String!,
-      price: Float!,
-      batterySize: Float!,
-      chargingSpeed: Float!,
+      id: ID!
+      name: String,
+      price: Float,
+      batterySize: Float,
+      chargingSpeed: Float,
       imageName: String,
       summary: String
     ): Vehicle
@@ -38,9 +42,16 @@ export const typeDefs = gql`
 
 export const resolvers = {
   Query: {
-    vehicles: async () => {
+    getVehicles: async () => {
       return await Car.find();
     },
+    getVehicle: async (_, { id, context }  ) => {
+      const vehicle = await Car.findById(id);
+      if (!vehicle) {
+        throw new Error('Vehicle not found');
+      }
+      return vehicle;
+    }
   },
   Mutation: {
     createVehicle: async (_, { name, price, batterySize, chargingSpeed, imageName, summary }, context) => {
@@ -52,7 +63,7 @@ export const resolvers = {
       const newCar = new Car({ name, price, batterySize, chargingSpeed, imageName, summary });
       return await newCar.save();
     },
-    updateVehicle: async (_, { _id, name, price, batterySize, chargingSpeed, imageName, summary }, context) => {
+    updateVehicle: async (_, { id, name, price, batterySize, chargingSpeed, imageName, summary }, context) => {
       console.log('Resolver context:', context); //Debug log
       if (!context.authenticated || !context.user || context.user.role !== 'admin') {
         console.log('Not authorized - Auth:', context.authenticated, 'User:', context.user); // Debug log
@@ -60,17 +71,17 @@ export const resolvers = {
       }
 
       try {
-        const updateCar = await Car.findByIdAndUpdate(
-          _id,
+        const updatedCar = await Car.findByIdAndUpdate(
+          id,
           { name, price, batterySize, chargingSpeed, imageName, summary },
-          { new: true }
+          { new: true, runValidators: true }
         );
 
         if (!updatedCar) {
           throw new Error('Vehicle not found');
         }
 
-        return updatedCard;
+        return updatedCar;
       } catch (error) {
         console.error('Error updating vehicle:', error);
         throw new Error('Failed to update vehicle')
