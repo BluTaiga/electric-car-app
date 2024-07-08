@@ -27,7 +27,7 @@ export const typeDefs = gql`
       summary: String
     ): Vehicle
   }
-  type Mutation{
+  type Mutation {
     updateVehicle(
       id: ID!
       name: String,
@@ -38,6 +38,9 @@ export const typeDefs = gql`
       summary: String
     ): Vehicle
   }
+  type Mutation {
+    deleteVehicle(id: ID!): Vehicle
+  }
 `;
 
 export const resolvers = {
@@ -45,7 +48,7 @@ export const resolvers = {
     getVehicles: async () => {
       return await Car.find();
     },
-    getVehicle: async (_, { id, context }  ) => {
+    getVehicle: async (_, { id }, context  ) => {
       const vehicle = await Car.findById(id);
       if (!vehicle) {
         throw new Error('Vehicle not found');
@@ -85,6 +88,24 @@ export const resolvers = {
       } catch (error) {
         console.error('Error updating vehicle:', error);
         throw new Error('Failed to update vehicle')
+      }
+    },
+    deleteVehicle: async (_, { id }, context) => {
+      // Check authentication and authorization
+      if (!context.authenticated || !context.user || context.user.role !== 'admin') {
+        throw new Error('Not authorized to delete vehicles');
+      }
+    
+      try {
+        const deletedVehicle = await Car.findByIdAndDelete(id);
+        if (!deletedVehicle) {
+          throw new Error('Vehicle not found');
+        }
+        console.log('Vehicle with ID:', id, 'deleted successfully');
+        return deletedVehicle; // Return the deleted vehicle
+      } catch (error) {
+        console.error('Error deleting vehicle:', error);
+        throw new Error('Failed to delete vehicle: ' + error.message);
       }
     }
   }
