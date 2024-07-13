@@ -6,6 +6,7 @@ export const typeDefs = gql`
     id: ID!
     name: String!
     price: Float!
+    maxRange: Float!
     batterySize: Float!
     chargingSpeed: Float!
     imageName: String
@@ -21,6 +22,7 @@ export const typeDefs = gql`
     createVehicle(
       name: String!,
       price: Float!,
+      maxRange: Float!,
       batterySize: Float!,
       chargingSpeed: Float!,
       imageName: String,
@@ -32,6 +34,7 @@ export const typeDefs = gql`
       id: ID!
       name: String,
       price: Float,
+      maxRange: Float
       batterySize: Float,
       chargingSpeed: Float,
       imageName: String,
@@ -57,16 +60,16 @@ export const resolvers = {
     }
   },
   Mutation: {
-    createVehicle: async (_, { name, price, batterySize, chargingSpeed, imageName, summary }, context) => {
+    createVehicle: async (_, { name, price, maxRange, batterySize, chargingSpeed, imageName, summary }, context) => {
       console.log('Resolver context:', context); // Debug log
       if (!context.authenticated || !context.user || context.user.role !== 'admin') {
         console.log('Not authorized - Auth:', context.authenticated, 'User:', context.user); // Debug log
         throw new Error('Not authorized');
       }
-      const newCar = new Car({ name, price, batterySize, chargingSpeed, imageName, summary });
+      const newCar = new Car({ name, price, maxRange, batterySize, chargingSpeed, imageName, summary });
       return await newCar.save();
     },
-    updateVehicle: async (_, { id, name, price, batterySize, chargingSpeed, imageName, summary }, context) => {
+    updateVehicle: async (_, { id, name, price, maxRange, batterySize, chargingSpeed, imageName, summary }, context) => {
       console.log('Resolver context:', context); //Debug log
       if (!context.authenticated || !context.user || context.user.role !== 'admin') {
         console.log('Not authorized - Auth:', context.authenticated, 'User:', context.user); // Debug log
@@ -76,7 +79,7 @@ export const resolvers = {
       try {
         const updatedCar = await Car.findByIdAndUpdate(
           id,
-          { name, price, batterySize, chargingSpeed, imageName, summary },
+          { name, price, maxRange, batterySize, chargingSpeed, imageName, summary },
           { new: true, runValidators: true }
         );
 

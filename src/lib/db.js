@@ -23,6 +23,7 @@ const connectDB = async () => {
 const CarSchema = new mongoose.Schema({
   name: String,
   price: Number,
+  maxRange: Number,
   batterySize: Number,
   chargingSpeed: Number,
   imageName: String,
